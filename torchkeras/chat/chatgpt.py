@@ -43,9 +43,9 @@ class ChatGPT(object):
             print(reply)
         try:
             self.register_magic() 
-            print('register magic %%chatgpt sucessed ...')
+            print('register magic %%chat sucessed ...')
         except Exception as err:
-            print('register magic %%chatgpt failed ...')
+            print('register magic %%chat failed ...')
             print(err)
             
     def get_openai_completion(self,messages):
@@ -99,8 +99,8 @@ class ChatGPT(object):
                 self.pipe = pipe
 
             @line_cell_magic
-            def chatgpt(self, line, cell=None):
-                "Magic that works both as %chatgpt and as %%chatgpt"
+            def chat(self, line, cell=None):
+                "Magic that works both as %chat and as %%chat"
                 if cell is None:
                     return self.pipe(line)
                 else:

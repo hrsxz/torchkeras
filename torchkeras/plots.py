@@ -164,7 +164,6 @@ class Annotator:
             self.font = ImageFont.load_default()
 
         self.lw = line_width or max(round(sum(self.img.size) / 2 * 0.003), 2)
-        self.pil_9_2_0_check = True if PIL.__version__ >= '9.2.0' else False
 
     def add_box_label(self, box, label='', color=(128, 128, 128), txt_color=(255, 255, 255)):
         """
@@ -185,10 +184,8 @@ class Annotator:
 
         self.draw.rectangle(box, width=self.lw, outline=color)  # box
         if label:
-            if self.pil_9_2_0_check:
-                _, _, w, h = self.font.getbbox(label)  # text width, height (New)
-            else:
-                w, h = self.font.getsize(label)  # text width, height (Old, deprecated in 9.2.0)
+            
+            _, _, w, h = self.font.getbbox(label)  # text width, height 
             outside = box[1] - h >= 0  # label fits outside box
             self.draw.rectangle(
                 (box[0], box[1] - h if outside else box[1], box[0] + w + 1,

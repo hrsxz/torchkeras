@@ -10,7 +10,7 @@ from torchkeras.utils import is_jupyter
 
 """
 @author : lyhue1991
-@description : hud model code
+@description : hug model code
 """
 
 class HugModel(torch.nn.Module):

@@ -209,4 +209,3 @@ class ChatLLM:
         ipython = IPython.get_ipython()
         magic = ChatMagics(ipython,self)
         ipython.register_magics(magic)
-        
