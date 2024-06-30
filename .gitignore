@@ -29,3 +29,4 @@ runs
 checkpoint
 *.jpg
 *.png
+/venv
